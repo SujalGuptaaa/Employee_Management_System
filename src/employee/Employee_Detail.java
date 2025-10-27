@@ -1,0 +1,51 @@
+package employee;
+
+import java.util.Scanner;
+
+public class Employee_Detail {
+	
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		try {
+			Employee_Service emps = new Employee_Service();
+			while (true) {
+				
+				System.out.println("---------------------Employee System----------------------------");
+				System.out.println("1. Add Employee");
+				System.out.println("2. Search Employee");
+				System.out.println("3. Print Employee");
+				System.out.println("4. Exit");
+				System.out.println("----------------------------------------------------------------");
+				//System.out.println("if you want to add Employee in list Enter 1 if you want to search Employee Detail Enter 2 or you want see Employees Details List Enter 3 if you want to end the program Enter 4: ");
+				int num = scanner.nextInt();
+				
+				if (num==1) {
+					emps.Addemployee(scanner);
+				}
+				else if (num==2) {
+					
+				}
+				else if (num==3) {
+					emps.printdetail();
+				}
+				else {
+					break;
+				}
+				scanner.nextLine();
+				System.out.println("----------------------------------------------------------------");
+			}
+		}
+		catch(Exception exception)
+		{
+			System.out.println("Error Occured! Please restart");
+		}
+		finally
+		{
+			scanner.close();
+		}
+		
+	}
+
+}

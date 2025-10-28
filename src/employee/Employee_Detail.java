@@ -10,22 +10,24 @@ public class Employee_Detail {
 		
 		try {
 			Employee_Service emps = new Employee_Service();
+			System.out.println("---------------------Employee System----------------------------");
+			System.out.println("1. Add Employee");
+			System.out.println("2. Search Employee");
+			System.out.println("3. Print Employee");
+			System.out.println("4. Exit");
+			System.out.println("----------------------------------------------------------------");
 			while (true) {
 				
-				System.out.println("---------------------Employee System----------------------------");
-				System.out.println("1. Add Employee");
-				System.out.println("2. Search Employee");
-				System.out.println("3. Print Employee");
-				System.out.println("4. Exit");
-				System.out.println("----------------------------------------------------------------");
+				
 				//System.out.println("if you want to add Employee in list Enter 1 if you want to search Employee Detail Enter 2 or you want see Employees Details List Enter 3 if you want to end the program Enter 4: ");
 				int num = scanner.nextInt();
 				
 				if (num==1) {
 					emps.Addemployee(scanner);
+					System.out.println("Employee added Succesfully");
 				}
 				else if (num==2) {
-					
+					emps.searchemployee( scanner);
 				}
 				else if (num==3) {
 					emps.printdetail();
@@ -36,11 +38,12 @@ public class Employee_Detail {
 				scanner.nextLine();
 				System.out.println("----------------------------------------------------------------");
 			}
+			System.out.println("Program End");
 		}
-		catch(Exception exception)
-		{
-			System.out.println("Error Occured! Please restart");
-		}
+//		catch(Exception exception)
+//		{
+//			System.out.println("Error Occured! Please restart");
+//		}
 		finally
 		{
 			scanner.close();

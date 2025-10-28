@@ -2,14 +2,14 @@ package employee;
 
 import java.util.Scanner;
 
-public class Employee_Detail {
+public class EmployeeDetail {
 	
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
 		try {
-			Employee_Service emps = new Employee_Service();
+			EmployeeService emps = new EmployeeService();
 			System.out.println("---------------------Employee System----------------------------");
 			System.out.println("1. Add Employee");
 			System.out.println("2. Search Employee");
@@ -18,8 +18,6 @@ public class Employee_Detail {
 			System.out.println("----------------------------------------------------------------");
 			while (true) {
 				
-				
-				//System.out.println("if you want to add Employee in list Enter 1 if you want to search Employee Detail Enter 2 or you want see Employees Details List Enter 3 if you want to end the program Enter 4: ");
 				int num = scanner.nextInt();
 				
 				if (num==1) {
@@ -40,10 +38,10 @@ public class Employee_Detail {
 			}
 			System.out.println("Program End");
 		}
-//		catch(Exception exception)
-//		{
-//			System.out.println("Error Occured! Please restart");
-//		}
+		catch(Exception exception)
+		{
+			System.out.println("Error Occured! Please restart");
+		}
 		finally
 		{
 			scanner.close();

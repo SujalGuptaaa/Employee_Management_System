@@ -22,7 +22,6 @@ public class EmployeeDetail {
 				
 				if (num==1) {
 					emps.Addemployee(scanner);
-					System.out.println("Employee added Succesfully");
 				}
 				else if (num==2) {
 					emps.searchemployee( scanner);

@@ -9,10 +9,8 @@ public class EmployeeService {
 	List<Employee> detail = new ArrayList<>();
 	
 	public void Addemployee(Scanner scanner) {
-	
 		Employee obj = new Employee();
-		System.out.println("Enter Id");
-		obj.Id = scanner.nextInt();
+		System.out.println("Your ID is: "+obj.Id);
 		scanner.nextLine();
 		System.out.println("Enter Name");
 		obj.Name = scanner.nextLine();
@@ -20,18 +18,8 @@ public class EmployeeService {
 		obj.Department = scanner.nextLine();
 		System.out.println("Enter Salary");
 		obj.Salary = scanner.nextInt();
-		boolean id = false;
-		for (int i = 0; i<=detail.size()-1; i++) {
-			Employee emp = detail.get(i);
-			if (obj.Id == emp.Id) {
-				System.out.println("This Id is already present in list Enter difrent Id.");
-				id = true;
-			}
-		}
-		if (id ==false) {
-			detail.add(obj);
-			System.out.println("Employee added Succesfully");
-		}
+		obj.Id =detail.size()+1;
+		detail.add(obj);
 	}
 	
 	public void printdetail() {

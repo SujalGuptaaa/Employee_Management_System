@@ -2,7 +2,7 @@ package employee;
 
 import java.util.Scanner;
 
-public class EmployeeDetail {
+public class ConsoleApplication {
 	
 	
 	public static void main(String[] args) {
@@ -10,13 +10,13 @@ public class EmployeeDetail {
 		
 		try {
 			EmployeeService emps = new EmployeeService();
-			System.out.println("---------------------Employee System----------------------------");
-			System.out.println("1. Add Employee");
-			System.out.println("2. Search Employee");
-			System.out.println("3. Print Employee");
-			System.out.println("4. Exit");
-			System.out.println("----------------------------------------------------------------");
 			while (true) {
+				System.out.println("---------------------Employee System----------------------------");
+				System.out.println("1. Add Employee");
+				System.out.println("2. Search Employee");
+				System.out.println("3. Print Employee");
+				System.out.println("4. Exit");
+				System.out.println("-----------------------------------------------------------------");
 				
 				int num = scanner.nextInt();
 				
@@ -24,7 +24,7 @@ public class EmployeeDetail {
 					emps.Addemployee(scanner);
 				}
 				else if (num==2) {
-					emps.searchemployee( scanner);
+					emps.searchEmployee(scanner);
 				}
 				else if (num==3) {
 					emps.printdetail();

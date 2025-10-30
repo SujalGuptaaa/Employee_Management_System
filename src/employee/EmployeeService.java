@@ -6,11 +6,10 @@ import java.util.Scanner;
 
 public class EmployeeService {
 	
-	List<Employee> detail = new ArrayList<>();
+	List<Employee> employeeList = new ArrayList<>();
 	
 	public void Addemployee(Scanner scanner) {
 		Employee obj = new Employee();
-		System.out.println("Your ID is: "+obj.Id);
 		scanner.nextLine();
 		System.out.println("Enter Name");
 		obj.Name = scanner.nextLine();
@@ -18,27 +17,33 @@ public class EmployeeService {
 		obj.Department = scanner.nextLine();
 		System.out.println("Enter Salary");
 		obj.Salary = scanner.nextInt();
-		obj.Id =detail.size()+1;
-		detail.add(obj);
+		obj.Id = employeeList.size()+1;
+		employeeList.add(obj);
+		System.out.println("Employee added to database successfully!!");
+		System.out.println("Your ID is: " + obj.Id);
 	}
 	
 	public void printdetail() {
 		
-		for (int i = 0; i<=detail.size()-1; i++) {
-			Employee emp = detail.get(i);
+		if (employeeList.isEmpty()) {
+			System.out.println("There is no data in Database!!");
+		}
+		
+		for (int i = 0; i<=employeeList.size()-1; i++) {
+			Employee emp = employeeList.get(i);
 			System.out.println(emp.Id+ " "+emp.Name+ " "+emp.Department+ " "+emp.Salary );
 		
 		}
 	}
 	
-	public void searchemployee(Scanner scanner) {
+	public void searchEmployee(Scanner scanner) {
 		System.out.println("Enter ID or Name: ");
-		int Searchkey  = scanner.nextInt();
+		String Searchkey  = scanner.next();
 		
-		boolean found = false; 
+/*		boolean found = false; 
 		for (int i = 0; i<=detail.size()-1; i++) {
 			Employee emp = detail.get(i);
-			if(Searchkey == emp.Id) {
+			if(emp.Name.equalsIgnoreCase(Searchkey) || String.valueOf(emp.Id).equalsIgnoreCase(Searchkey)) {
 				System.out.println(emp.Id+ " "+emp.Name+ " "+emp.Department+ " "+emp.Salary );
 				found = true;
 				break;
@@ -46,17 +51,22 @@ public class EmployeeService {
 		}
 		
 		if(found == false) {
-			System.out.println("This employee is not in a list");
+			System.out.println("This employee is not in a Database!!");
 		}
-	
-		/*var emp = detail.stream().filter(x -> x.Id == id).findFirst().orElse(null);
+*/	
+		var result = employeeList
+						.stream()
+						.filter(emp -> emp.Name.equalsIgnoreCase(Searchkey) 
+										|| String.valueOf(emp.Id).equalsIgnoreCase(Searchkey))
+						.findFirst()
+						.orElse(null);
 		
-		if(emp == null) {
+		if(result == null) {
 			System.out.println("This employee is not in a list");
 		}
 		else {
-			System.out.println(emp.Id+ " "+emp.Name+ " "+emp.Department+ " "+emp.Salary );
-		}*/
+			System.out.println(result.Id+ " "+result.Name+ " "+result.Department+ " "+result.Salary );
+		}
 		
 	}
 }
